@@ -53,12 +53,10 @@ class MinimalRAGPipeline:
             )
             reviews = reviews_result.scalars().all()
             
-            # Build content with proper relationship access
             content_parts = [
                 f"Title: {book.title}",
             ]
             
-            # Fix: Use relationship attributes properly
             if book.author:
                 content_parts.append(f"Author: {book.author.name}")
             if book.genre:
